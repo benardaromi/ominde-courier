@@ -19,11 +19,14 @@ import { useState } from "react"
 import { SelectLocation } from "./select-location"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "./ui/alert-dialog"
 import { AlertDialogTrigger } from "@radix-ui/react-alert-dialog"
+import { useToast } from "./ui/use-toast"
 
 export function UserTab() {
   const [selectedWeight, setSelectedWeight] = useState('')
   const [selectedCourier, setSelectedCourier] = useState('')
   const [location, setLocation] = useState('')
+
+  const toast = useToast()
 
   const handleSelectedWeight = (weight) => {
     setSelectedWeight(weight)
@@ -46,7 +49,7 @@ export function UserTab() {
       <TabsContent value="sending">
         <Card>
           <CardHeader>
-            <CardTitle>Parcel Details</CardTitle>
+            <CardTitle className="drop-shadow-md bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500 text-transparent">Parcel Details</CardTitle>
             <CardDescription>
               Fill out the form below and select continue to proceed
             </CardDescription>
@@ -79,7 +82,13 @@ export function UserTab() {
                 </div>
               <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction>Continue</AlertDialogAction>
+                <AlertDialogAction onClick={() => {
+                  
+                   toast({
+                     title: "Scheduled: Catch up",
+                     description: "Friday, February 10, 2023 at 5:57 PM",
+                   })
+                }}>Continue</AlertDialogAction>
               </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
@@ -89,9 +98,9 @@ export function UserTab() {
       <TabsContent value="receiving">
         <Card>
           <CardHeader>
-            <CardTitle>Password</CardTitle>
+            <CardTitle>Details</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you'll be logged out.
+              Loading...
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">

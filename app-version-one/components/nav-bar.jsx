@@ -15,8 +15,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
   export default function NavBar({ photoURL }) {
     return (
-        <div className="flex w-full justify-around p-1.5 fixed top-0 left-0 z-50 bg-orange-200 shadow-sm shadow-orange-100 items-center opacity-90">
-            <h1 className="font-extrabold bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">Express Ship</h1>
+        <div className="flex w-full justify-around p-1.5 fixed top-0 left-0 z-50 shadow-sm shadow-orange-100 items-center opacity-90">
+            <h1 className="font-extrabold bg-gradient-to-r from-orange-700 to-yellow-400 bg-clip-text text-transparent">Express Ship</h1>
             <NavMenu />
             <Avatar>
                 <AvatarImage src={photoURL} alt="profile photo" />

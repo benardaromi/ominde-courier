@@ -6,13 +6,15 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ArrowBigRight } from "lucide-react"
 import Loading from "@/components/loading"
+import { useState } from "react"
 
 export default function LoginPage() {
     
     const router = useRouter()
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     async function login() {
+        setLoading(true)
         return signInWithPopup(auth, provider)
             .then (() => {
                 router.push('/')

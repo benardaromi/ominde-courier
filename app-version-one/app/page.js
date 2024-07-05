@@ -1,6 +1,7 @@
 'use client'
 
 import Body from "@/components/body";
+import Footer from "@/components/footer";
 import Loading from "@/components/loading";
 import NavBar from "@/components/nav-bar";
 import { auth } from "@/firebase";
@@ -46,6 +47,7 @@ export default function Home() {
       <NavBar photoURL={photoURL}/>
       <Body userName={userName}
         photoURL={photoURL}/>
+      <Footer/>
     </div>
   )
 }
